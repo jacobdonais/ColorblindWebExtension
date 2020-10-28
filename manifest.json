@@ -1,0 +1,35 @@
+{
+  "name": "Color Blind",
+  "author": "The Phantom Thieves",
+  "version": "1.0",
+  "description": "Adjust the view to best fit the user",
+  "permissions": ["storage"],
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 2,
+  "browser_action": {
+    "default_icon": {
+      "16": "images/color-blind16.png",
+      "32": "images/color-blind32.png",
+      "48": "images/color-blind48.png",
+      "128": "images/color-blind128.png"
+    },
+    "default_title": "Color Changer",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "images/color-blind16.png",
+    "32": "images/color-blind32.png",
+    "48": "images/color-blind48.png",
+    "128": "images/color-blind128.png"
+  }
+}
