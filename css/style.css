@@ -1,15 +1,38 @@
 /* main styles */
 * {
-    font-family: 'Segoe UI';
-}
-
-h1 {
-    font-weight: 600;
-    font-size: .9em;
-}
-
-p {
-    font-weight: 500;
-    font-size: .8em;
-    margin-bottom: 10px;  
-}
+    font-family: "Segoe UI";
+  }
+  
+  h1 {
+    font-size: 18px;
+  }
+  
+  p {
+    font-size: 12px;
+  }
+  
+  .feature h2 {
+    margin-bottom: 2px;
+  }
+  
+  .feature > span {
+    white-space: nowrap;
+    float: left;
+    margin: 4px;
+  }
+  
+  #blackText {
+    color: black;
+    background-color: white;
+    padding: 2px 4px;
+    border-style: solid;
+  }
+  
+  #whiteText {
+    color: white;
+    background-color: black;
+    padding: 2px 4px;
+    border-style: solid;
+    border-color: black;
+  }
+  
