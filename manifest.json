@@ -3,18 +3,11 @@
   "author": "The Phantom Thieves",
   "version": "1.0",
   "description": "Adjust the view to best fit the user",
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs", "activeTab", "http://*/", "https://*/"],
   "background": {
     "scripts": ["js/background.js"],
     "persistent": true
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["js/content.js"],
-      "run_at": "document_end"
-    }
-  ],
   "manifest_version": 2,
   "browser_action": {
     "default_icon": {
