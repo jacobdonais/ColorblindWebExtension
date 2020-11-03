@@ -1,38 +1,41 @@
 /* main styles */
 * {
-    font-family: "Segoe UI";
-  }
-  
-  h1 {
-    font-size: 18px;
-  }
-  
-  p {
-    font-size: 12px;
-  }
-  
-  .feature h2 {
-    margin-bottom: 2px;
-  }
-  
-  .feature > span {
-    white-space: nowrap;
-    float: left;
-    margin: 4px;
-  }
-  
-  #blackText {
-    color: black;
-    background-color: white;
-    padding: 2px 4px;
-    border-style: solid;
-  }
-  
-  #whiteText {
-    color: white;
-    background-color: black;
-    padding: 2px 4px;
-    border-style: solid;
-    border-color: black;
-  }
-  
+  font-family: "Segoe UI";
+}
+
+h1 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 12px;
+}
+
+.grid-container {
+  display: grid;
+}
+
+.feature h2 {
+  margin-bottom: 2px;
+}
+
+.feature > span {
+  white-space: nowrap;
+  float: left;
+  margin: 4px;
+}
+
+#blackText {
+  color: black;
+  background-color: white;
+  padding: 2px 4px;
+  border-style: solid;
+}
+
+#whiteText {
+  color: white;
+  background-color: black;
+  padding: 2px 4px;
+  border-style: solid;
+  border-color: black;
+}

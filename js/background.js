@@ -7,7 +7,7 @@ function executeFeatures() {
                 if (!obj.contrast) {
                     obj.contrast = {
                         "scriptFile": "contrast/defaultText.js",
-                        "name": "default"
+                        "name": "defaultText"
                     };
                 }
                 chrome.tabs.executeScript(null, { file: "js/" + obj.contrast.scriptFile });
@@ -15,8 +15,8 @@ function executeFeatures() {
                 /* Do Filter Feature */
                 if (!obj.filter) {
                     obj.filter = {
-                        "scriptFile": "filter/noGrayscale.js",
-                        "name": "noGray"
+                        "scriptFile": "filter/defaultFilter.js",
+                        "name": "defaultFilter"
                     };
                 }
                 chrome.tabs.executeScript(null, { file: "js/" + obj.filter.scriptFile });

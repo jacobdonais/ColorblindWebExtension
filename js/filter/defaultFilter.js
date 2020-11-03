@@ -1,4 +1,4 @@
-/* No Grayscale Filter Feature */
+/* No Invert Filter Feature */
 
 // Local Variables
 var FEATURE = "filter"

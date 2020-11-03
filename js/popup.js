@@ -33,7 +33,7 @@ chrome.storage.sync.get(function (obj) {
     if (!obj.contrast) {
         obj.contrast = {
             "scriptFile": "contrast/defaultText.js",
-            "name": "default"
+            "name": "defaultText"
         };
     }
     document.getElementById(obj.contrast.name).checked = true;
@@ -41,15 +41,12 @@ chrome.storage.sync.get(function (obj) {
 
     if (!obj.filter) {
         obj.filter = {
-            "scriptFile": "filter/noGrayscale.js",
-            "name": "noGray"
+            "scriptFile": "filter/defaultFilter.js",
+            "name": "defaultFilter"
         };
     }
-    if (obj.filter.name === "gray") {
-        document.getElementById(obj.filter.name).checked = true;
-    }
+    document.getElementById(obj.filter.name).checked = true;
     doFilter(obj.filter);
-
 
     // IMPLEMENT OTHER FEATURES HERE
     // 1. Add a default feature if setting is not already configured
@@ -66,16 +63,11 @@ for (var i = 0, max = radios.length; i < max; i++) {
     }
 }
 
-// Add actions to filter checkbox
-var checkboxes = document.getElementsByName('filter');
-for (var i = 0, max = checkboxes.length; i < max; i++) {
-    checkboxes[i].onclick = function () {
-        if (this.checked) {
-            doFilter({ "name": this.value });
-        }
-        else {
-            doFilter({ "name": "noGray" });
-        }
+// Add actions to gray filter checkbox
+var radios = document.getElementsByName('filter');
+for (var i = 0, max = radios.length; i < max; i++) {
+    radios[i].onclick = function () {
+        doFilter({ "name": this.value });
         refreshBackground();
     }
 }
@@ -101,13 +93,13 @@ for (var i = 0, max = checkboxes.length; i < max; i++) {
 function doContrast(data) {
     switch (data.name) {
         case 'black':
-            data.scriptFile = "contrast/blackText.js"
+            data.scriptFile = "contrast/blackText.js";
             break;
         case 'white':
-            data.scriptFile = "contrast/whiteText.js"
+            data.scriptFile = "contrast/whiteText.js";
             break;
         default:
-            data.scriptFile = "contrast/defaultText.js"
+            data.scriptFile = "contrast/defaultText.js";
             break;
     }
     saveData({ "contrast": data });
@@ -128,10 +120,16 @@ function doContrast(data) {
 function doFilter(data) {
     switch (data.name) {
         case 'gray':
-            data.scriptFile = "filter/grayscale.js"
+            data.scriptFile = "filter/grayscale.js";
+            break;
+        case 'invert':
+            data.scriptFile = "filter/invert.js";
+            break;
+        case 'gray_invert':
+            data.scriptFile = "filter/gray_invert.js";
             break;
         default:
-            data.scriptFile = "filter/noGrayscale.js"
+            data.scriptFile = "filter/defaultFilter.js";
             break;
     }
     saveData({ "filter": data });

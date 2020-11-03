@@ -1,14 +1,15 @@
 <!-- Pop-up for the User interface -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-  </head>
 
-  <body>
-    <h1>Color-Blind Extension</h1>
-    <p>Color Changer</p>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
 
+<body>
+  <h1>Color-Blind Extension</h1>
+  <p>Color Changer</p>
+  <div class="grid-container">
     <div id="contrast" class="feature">
       <h2>Contrast</h2>
       <span>
@@ -20,19 +21,33 @@
         <label id="whiteText" for="white">White Text</label>
       </span>
       <span>
-        <input type="radio" id="default" name="contrast" value="default" />
-        <label for="default">Default</label>
+        <input type="radio" id="defaultText" name="contrast" value="defaultText" />
+        <label id="default_text" for="defaultText">Default</label>
       </span>
     </div>
 
     <div id="filter" class="feature">
       <h2>Filters</h2>
       <span>
-        <input type="checkbox" id="gray" name="filter" value="gray">
-        <label id="grayFilter" for="gray">Gray Scale</label><br>
+        <input type="radio" id="gray" name="filter" value="gray" />
+        <label id="grayFilter" for="gray">Grayscale</label>
+      </span>
+      <span>
+        <input type="radio" id="invert" name="filter" value="invert" />
+        <label id="invertFilter" for="invert">Inverted</label>
+      </span>
+      <span>
+        <input type="radio" id="gray_invert" name="filter" value="gray_invert" />
+        <label id="grayInvertFilter" for="gray_invert">Grayscale Inverted</label>
+      </span>
+      <span>
+        <input type="radio" id="defaultFilter" name="filter" value="defaultFilter" />
+        <label id="default_filter" for="defaultFilter">Default</label>
       </span>
     </div>
+  </div>
 
-    <script src="js/popup.js"></script>
-  </body>
+  <script src="js/popup.js"></script>
+</body>
+
 </html>
