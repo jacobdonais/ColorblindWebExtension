@@ -32,12 +32,24 @@ chrome.storage.sync.get(function (obj) {
     // do feature.contrast
     if (!obj.contrast) {
         obj.contrast = {
-            "scriptFile": "contrast/default.js",
+            "scriptFile": "contrast/defaultText.js",
             "name": "default"
         };
     }
     document.getElementById(obj.contrast.name).checked = true;
     doContrast(obj.contrast);
+
+    if (!obj.filter) {
+        obj.filter = {
+            "scriptFile": "filter/noGrayscale.js",
+            "name": "noGray"
+        };
+    }
+    if (obj.filter.name === "gray") {
+        document.getElementById(obj.filter.name).checked = true;
+    }
+    doFilter(obj.filter);
+
 
     // IMPLEMENT OTHER FEATURES HERE
     // 1. Add a default feature if setting is not already configured
@@ -50,6 +62,20 @@ var radios = document.getElementsByName('contrast');
 for (var i = 0, max = radios.length; i < max; i++) {
     radios[i].onclick = function () {
         doContrast({ "name": this.value });
+        refreshBackground();
+    }
+}
+
+// Add actions to filter checkbox
+var checkboxes = document.getElementsByName('filter');
+for (var i = 0, max = checkboxes.length; i < max; i++) {
+    checkboxes[i].onclick = function () {
+        if (this.checked) {
+            doFilter({ "name": this.value });
+        }
+        else {
+            doFilter({ "name": "noGray" });
+        }
         refreshBackground();
     }
 }
@@ -85,6 +111,30 @@ function doContrast(data) {
             break;
     }
     saveData({ "contrast": data });
+}
+
+// functions for Filter functionalities
+/* 
+    This can accept two types of data:
+    data = {
+        name: <name>
+    }
+    OR
+    data = {
+        name: <name>
+        scriptFile: <script filename>
+    }
+*/
+function doFilter(data) {
+    switch (data.name) {
+        case 'gray':
+            data.scriptFile = "filter/grayscale.js"
+            break;
+        default:
+            data.scriptFile = "filter/noGrayscale.js"
+            break;
+    }
+    saveData({ "filter": data });
 }
 
 // IMPLEMENT OTHER FEATURES HERE
