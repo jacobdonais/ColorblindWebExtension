@@ -10,7 +10,7 @@ if (document.getElementById(FEATURE)) {
 
 // Create the style
 var styles = `
-* {
+html {
     -moz-filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     filter: gray; /* IE6-9 */

@@ -10,7 +10,7 @@ if (document.getElementById(FEATURE)) {
 
 // Create the style
 var styles = `
-* {
+html {
     filter: invert(100%);
   }
 `
